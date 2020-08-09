@@ -26,8 +26,13 @@ function calc(){
         display.innerText = "";
     }
     else if(value == '='){
+        if(funct == '%'){
+            result = v1/100;
+        }
+        else{
         var v3 = parseFloat(display.textContent);
         result = eval(v2 + " " + funct + " " + v3);
+        }
         display.innerText = result;
         v2 = null;
         clear = true;
@@ -40,6 +45,14 @@ function calc(){
         v2 = null;
         funct = null;
         result = null;
+    }
+    else if(value == 'back'){
+        var str = display.innerText;
+        var newstr = str.slice(0,-1);
+        display.innerText = newstr;
+        var str1 = display1.innerText;
+        var newstr1 = str1.slice(0,-1);
+        display1.innerText = newstr1;
     }
     else{
         if(clear == true){
